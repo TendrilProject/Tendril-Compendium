@@ -1,0 +1,9 @@
+name: Track Metrics
+on: [push]
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Count Tokens
+        run: echo "Token count: $(wc -w < living_seed.txt)" >> $GITHUB_STEP_SUMMARY
